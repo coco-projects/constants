@@ -1,13 +1,3 @@
-
-# constants Manager
-
-##### Enables you to organize and structure document paths more elegantly.
-
----
-
-### Here's a quick example:
-
-```php
 <?php
 
     use Coco\constants\ConstantsManager;
@@ -46,42 +36,3 @@
         return ConstantsManager::toDirectorySeparator($value) . 'aaa/bbb/ccc';
     });
     echo PHP_EOL;
-
-```
-
-
-```php
-<?php
-    use Coco\constants\ConstantsManager;
-
-    require '../vendor/autoload.php';
-
-    const PUBLIC_PATH = '/public/';
-
-    ConstantsManager::initSystemConstants();
-
-    $res = ConstantsManager::getAllConstants();
-
-    var_export($res);
-
-```
-
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require coco-project/constants --no-dev
-```
-
-## Testing
-
-``` bash
-composer test
-```
-
-## License
-
----
-
-MIT
