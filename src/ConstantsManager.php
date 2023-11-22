@@ -6,7 +6,7 @@
 
 class ConstantsManager
 {
-    public static array $constants = [];
+    protected static array $constants = [];
 
     public static function initSystemConstants(): void
     {
