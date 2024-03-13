@@ -35,9 +35,18 @@ class ConstantsManager
         return $value;
     }
 
-    public static function getAllConstants(): array
+    public static function getAllConstants($parsed = false): array
     {
-        return static::$constants;
+        $result = [];
+        if (!$parsed) {
+            $result = static::$constants;
+        } else {
+            foreach (static::$constants as $k => $v) {
+                $result[$k] = static::dynamicParsing($v);
+            }
+        }
+
+        return $result;
     }
 
     public static function setConstants($const, $value): void
@@ -91,7 +100,7 @@ class ConstantsManager
     {
         return preg_replace_callback('/<([^<>]+)>/im', function ($matchs) {
             return static::hasConstant($matchs[1]) ? (string)static::getValue($matchs[1]) : '';
-        }, $key);
+        }, (string)$key);
     }
 
     public static function beforeReturn(?callable $replaceCallback, $value): string
