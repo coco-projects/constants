@@ -18,7 +18,7 @@ class Consts extends ConstantsManager
 
     public static function getAll($parsed = false): array
     {
-        parent::getAllConstants($parsed);
+        return parent::getAllConstants($parsed);
     }
 
     public static function set($const, $value): void
@@ -43,6 +43,6 @@ class Consts extends ConstantsManager
 
     public static function has($const): bool
     {
-        parent::hasConstant($const);
+        return parent::hasConstant($const);
     }
 }
